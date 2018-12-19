@@ -9,7 +9,7 @@
 
         <div id="{{$name}}" style="width: 100%; height: 100%;"></div>
 
-        <input type="hidden" name="{{$name}}" value="{{ old($column, $value) }}" />
+        <input type="hidden" name="{{$name}}" value="{{ !is_string(old($column, $value)) ? json_encode(old($column, $value)) : old($column, $value) }}" />
         @include('admin::form.help-block')
 
     </div>
